@@ -1,1 +1,1 @@
-web:gunicorn ArtPortfolio.wsgi
+web: python manage.py runserver
