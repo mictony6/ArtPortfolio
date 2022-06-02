@@ -77,7 +77,7 @@ header {
 
 }
 
--main {
+.title {
     display: flex;
     flex-flow: column wrap;
 
@@ -87,7 +87,7 @@ header {
     flex-grow: 2;
 }
 
-.sub-main {
+.sub-title {
     font-size: 17px;
     font-weight: initial;
 }
@@ -515,7 +515,7 @@ footer h1 {
 
 
 
-.card-main {
+.card-title {
     overflow-wrap: break-word;
     width: 100%;
     font-family: 'Noto Serif', serif;
