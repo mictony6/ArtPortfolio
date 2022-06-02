@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<div class="artist-card">
+    <img src="{% static 'img/profile_pic.jpg' %}" alt="my-picture-here">
+    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Atque placeat ad fuga eveniet nesciunt, voluptate
+        veniam iure animi rerum dicta!</p>
+</div>
+
+
+<div class="card-container centered">
+    <div class="details-card">
+        <div class="card-title">EDUCATION</div>
+        <ul>
+            <li>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quaerat, quas?</li>
+            <li>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Unde, distinctio!</li>
+            <li>Lorem ipsum dolor sit amet.</li>
+        </ul>
+    </div>
+    <div class="details-card">
+        <div class="card-title">EXHIBITION</div>
+        <ul>
+            <li>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex!</li>
+            <li>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</li>
+            <li>Lorem ipsum dolor sit amet consectetur adipisicing elit. Illum, praesentium?</li>
+        </ul>
+
+    </div>
+    <div class="details-card">
+        <div class="card-title">PUBLICATION / PRODUCTION</div>
+        <ul>
+            <li>Lorem ipsum dolor sit amet consectetur adipisicing elit.</li>
+            <li>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi, debitis aliquid.</li>
+            <li>Lorem ipsum dolor sit amet consectetur. </li>
+        </ul>
+
+    </div>
+</div>
+{% endblock content %} 
+
+
+{% block script %}
+<script src="{% static 'js/about.js' %}"></script>
+{% endblock script %}
