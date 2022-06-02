@@ -1,1 +1,1 @@
-web:gunicorn ArtPortfolio.wsgi
+web: gunicorn ArtPortfolio.wsgi
