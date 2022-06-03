@@ -105,11 +105,6 @@ header {
     color: inherit;
 }
 
-.nav a.active {
-    color: var(--powder);
-    background-color: var(--blackish);
-}
-
 
 .top {
 
@@ -189,23 +184,63 @@ summary h1 {
 
 
 .artist-profile {
+    padding: 20px;
     border-top-right-radius: 10px;
     border-bottom-right-radius: 10px;
-    /* grid-area: pic; */
     grid-area: 1/5/3/8;
     background-color: white;
     display: flex;
     align-items: center;
-    overflow: hidden;
+    position: relative;
+
 
 }
 
 .artist-profile img {
-    padding: 5%;
     max-height: 100%;
     max-width: 100%;
     object-fit: cover;
     border-radius: 10px;
+    transition: all 1s;
+
+
+}
+
+.overlay {
+    border-radius: 10px;
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: transparent;
+    background-color: #0000006c;
+
+    z-index: -10;
+    top: 50%;
+    bottom: 50%;
+    right: 50%;
+    left: 50%;
+    opacity: 0;
+    transition: all 1s cubic-bezier(1, 0, 0, 1) !important;
+    font-size: 2rem;
+    font-style: italic;
+    font-family: var(--main-font);
+
+}
+
+
+
+.artist-profile:hover .overlay {
+    border-radius: 0px;
+
+    z-index: 10;
+    color: var(--front);
+    top: 0px;
+    bottom: 0px;
+    right: 0px;
+    left: 0px;
+    opacity: 1;
+
 }
 
 .event {
@@ -413,6 +448,7 @@ footer {
 
 
 
+
 footer div {
     border-left: solid var(--accent) 2px;
     display: flex;
@@ -432,6 +468,12 @@ footer a {
     text-decoration: none;
     color: inherit;
     font: inherit;
+    transition: all 0.5s cubic-bezier(0.075, 0.82, 0.165, 1);
+}
+
+footer a:hover {
+    background-color: var(--front);
+    color: var(--blackish);
 }
 
 .footer-left {
