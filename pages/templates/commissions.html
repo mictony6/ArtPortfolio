@@ -7,11 +7,18 @@
     <div class="gallery">
         <div class="grid">
             {% for art in artworks %}
+            {% if not art.thumbnail %}
             <a href="{{art.get_absolute_url}}"><div class="item"><img src="{{art.image.url}}" alt="img1" srcset=""></div></a>
+
+            {% else %}
+            <a href="{{art.get_absolute_url}}"><div class="item"><img src="{{art.thumbnail.url}}" alt="img1" srcset=""></div></a>
+
+            {% endif %}
             {% endfor %}
         </div>
     </div>
 </div>
+
 {% endblock content %}
 
 
