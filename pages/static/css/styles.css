@@ -52,7 +52,7 @@ body {
     min-height: 100%;
     background-color: var(--base);
     overflow-x: hidden;
-    animation: fadein 2s;
+    animation: fadein 1s;
 
 }
 
