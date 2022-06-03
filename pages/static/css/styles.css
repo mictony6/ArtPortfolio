@@ -95,6 +95,12 @@ header {
     flex-grow: 2;
 }
 
+#logo {
+    float: left;
+    max-height: 64px;
+    width: auto;
+}
+
 .sub-title {
     font-size: 17px;
     font-weight: initial;
