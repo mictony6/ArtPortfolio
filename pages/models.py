@@ -1,9 +1,5 @@
-import base64
-from distutils.command.upload import upload
 from io import BytesIO
 import os
-from pyexpat import model
-from tkinter import Image
 from django.db import models
 from django.urls import reverse
 from PIL import Image
