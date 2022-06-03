@@ -13,13 +13,17 @@
 
 
 :root {
-    --front: #f6f5f0;
-    --blackish: #2d2d2b;
-    --tin-black: #2d2d2b71;
-    --powder: #f0e4d8;
-    --supple: #c39e9e;
-    --base: #201f1f;
+    /* --base: #201f1f; */
+    --front: rgb(27, 27, 27);
+    --base: #f6f5f0;
+    /* --blackish: #2d2d2b; */
+    --staple: rgb(202, 177, 128);
     --accent: #8d7d63;
+    --powder: #5f3811;
+
+
+    --tin-black: #2d2d2b71;
+    --supple: #c39e9e;
     --alt: #F7C066;
 
 
@@ -71,7 +75,7 @@ body {
 header {
     font-family: var(--main-font);
     color: var(--powder);
-    background-color: var(--blackish);
+    background-color: var(--staple);
     display: flex;
     padding: 0 5%;
     min-height: 32px;
@@ -114,7 +118,7 @@ header {
 
 .top {
     font-family: var(--main-font);
-    background-color: var(--blackish);
+    background-color: var(--staple);
     border-radius: 10px;
     gap: 10px;
     padding: 10px;
@@ -123,8 +127,17 @@ header {
     display: grid;
     width: 100%;
     grid-auto-rows: 40vh auto;
+
 }
 
+@media screen and (max-width: 1024px) {
+    .top {
+        grid-auto-rows: auto auto;
+
+    }
+
+
+}
 
 
 /* Scrollbar */
@@ -136,7 +149,7 @@ header {
 
 /* Track */
 ::-webkit-scrollbar-track {
-    background: var(--blackish);
+    background: var(--staple);
 }
 
 /* Handle */
@@ -156,7 +169,7 @@ header {
 .summary {
     width: 100%;
     display: flex;
-    flex-flow: column wrap;
+    flex-flow: column nowrap;
     border-radius: 10px 0px;
     padding: 2%;
     background-color: white;
@@ -228,9 +241,8 @@ header {
 
 .artist-profile:hover .overlay {
     border-radius: 0px;
-
     z-index: 10;
-    color: var(--front);
+    color: white;
     top: 0px;
     bottom: 0px;
     right: 0px;
@@ -259,7 +271,7 @@ header {
 
     position: relative;
     padding: 0% 2.5%;
-    background-color: var(--blackish);
+    background-color: var(--staple);
     color: var(--powder);
 
     max-width: 30%;
@@ -334,7 +346,7 @@ header {
     flex-grow: 0;
     max-width: 25%;
     padding: 2%;
-    background-color: var(--blackish);
+    background-color: var(--staple);
     color: var(--powder);
     font-size: 40px;
     font-weight: bold;
@@ -434,7 +446,7 @@ footer {
     min-height: 16vh;
     font-family: var(--text-font);
     font-size: 17px;
-    background-color: var(--blackish);
+    background-color: var(--staple);
     color: var(--powder);
     border-top: rgba(255, 255, 255, 0.75) 10px solid;
     /* grid-template-columns: 35% 1fr 1fr 1fr; */
@@ -470,7 +482,7 @@ footer a {
 .footer-center a:hover,
 .footer-right a:hover {
     background-color: var(--front);
-    color: var(--blackish);
+    color: var(--staple);
 }
 
 .footer-left {
@@ -544,10 +556,12 @@ footer h1 {
 
 .artist-card {
     background-color: var(--powder);
+    color: var(--supple);
     margin: 10px;
     height: 20vh;
     display: flex;
     border-radius: 10px;
+
 
 }
 
@@ -578,6 +592,7 @@ footer h1 {
     justify-content: space-between;
     height: 50vh;
 
+
 }
 
 
@@ -601,12 +616,14 @@ footer h1 {
     align-items: center;
     padding: 50px;
     z-index: -2;
+    box-shadow: 0px 10px 10px 0px rgba(0, 0, 0, 0.20);
+
 
 }
 
 .details-card:nth-child(even) {
     animation: slideDown 1s ease 1;
-    background-color: var(--blackish);
+    background-color: var(--staple);
     color: var(--powder)
 }
 
