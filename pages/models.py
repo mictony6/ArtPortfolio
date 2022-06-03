@@ -17,6 +17,7 @@ class ArtWork(models.Model):
     image = models.ImageField(upload_to='assets/')
     thumbnail = models.ImageField(
         upload_to='thumbnails/', blank=True, null=True)
+    preview = models.ImageField(upload_to='previews/', blank=True, null=True)
     featured = models.BooleanField(default=False)
 
     def get_absolute_url(self):
@@ -54,11 +55,47 @@ class ArtWork(models.Model):
             dst_bytes.read()), save=False)
         dst_bytes.close()
 
+    def make_preview(self, dst_image_field, src_image_field, size, name_suffix, sep='_'):
+        # create thumbnail image
+        image = Image.open(src_image_field)
+        image.thumbnail(size, Image.ANTIALIAS)
+
+        # separate path from extension
+        dst_path, dst_ext = os.path.splitext(src_image_field.name)
+        # lowercase extension
+        dst_ext = dst_ext.lower()
+        # build file name for dst
+        dst_fname = dst_path + sep + name_suffix + dst_ext
+
+        # check extension
+        if dst_ext in ['.jpg', '.jpeg']:
+            filetype = 'JPEG'
+        elif dst_ext == '.gif':
+            filetype = 'GIF'
+        elif dst_ext == '.png':
+            filetype = 'PNG'
+        else:
+            raise RuntimeError('unrecognized file type of "%s"' % dst_ext)
+
+        # Save thumbnail to in-memory file as StringIO
+        dst_bytes = BytesIO()
+        image.save(dst_bytes, filetype, optimize=True, quality=20)
+        dst_bytes.seek(0)
+
+        # set save=False, otherwise it will run in an infinite loop
+        dst_image_field.save(dst_fname, ContentFile(
+            dst_bytes.read()), save=False)
+        dst_bytes.close()
+
     def save(self, *args, **kwargs):
         # save for image
         super(ArtWork, self).save(*args, **kwargs)
-
-        self.make_thumbnail(self.thumbnail, self.image, (800, 800), 'thumb')
+        if self.thumbnail is None or not self.thumbnail:
+            self.make_thumbnail(self.thumbnail, self.image,
+                                (800, 800), 'thumb')
+        if (self.preview is None or not self.preview) and self.featured:
+            self.make_preview(self.preview, self.image,
+                              (1000, 1000), 'preview')
 
         # save for thumbnail and icon
         super(ArtWork, self).save(*args, **kwargs)
@@ -66,4 +103,5 @@ class ArtWork(models.Model):
     def delete(self, *args, **kwargs):
         self.image.storage.delete(self.image.name)
         self.thumbnail.storage.delete(self.thumbnail.name)
+        self.preview.storage.delete(self.preview.name)
         return super().delete(*args, **kwargs)

@@ -46,7 +46,11 @@
 
     {% for asset in featured %}
     <div class="slide">
+        {% if not asset.preview %}
         <img src="{{asset.image.url}}" alt="slide_img">
+        {% else %}
+        <img src="{{asset.preview.url}}" alt="slide_img">
+        {% endif %}
     </div>
     {% endfor %}
 </div>
