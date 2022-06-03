@@ -1,4 +1,6 @@
-from django.shortcuts import render
+from multiprocessing import context
+from urllib import request
+from django.shortcuts import get_object_or_404, render
 
 from pages.models import ArtWork
 
@@ -17,6 +19,15 @@ def about_view(request):
     return render(request, 'about.html', context)
 
 
-def commissions_view(request):
-    context = {}
+def commissions_view(request, *args, **kwargs):
+    context = {
+        'artworks': ArtWork.objects.all()
+    }
     return render(request, 'commissions.html', context)
+
+
+def detail_view(request, pk):
+    context = {
+        'subject': get_object_or_404(ArtWork, pk=pk)
+    }
+    return render(request, 'detail.html', context)

@@ -32,7 +32,7 @@ function slideShow() {
     let n = slides.length;
     for (let i = 0; i < n; i++) {
         slides[i].style.display = "none";
-        dots[i].style = "background-color:var(--blackish)";
+        dots[i].style = "background-color:var(--accent)";
 
     }
     slides[currentSlide].style.display = "flex";

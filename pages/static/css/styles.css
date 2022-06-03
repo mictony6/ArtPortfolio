@@ -1,7 +1,13 @@
 * {
-    box-sizing: border-box;
     margin: 0;
     padding: 0;
+
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
 }
 
 
@@ -12,7 +18,7 @@
     --tin-black: #2d2d2b71;
     --powder: #f0e4d8;
     --supple: #c39e9e;
-    --base: grey;
+    --base: #201f1f;
     --accent: #8d7d63;
     --alt: #F7C066;
 
@@ -57,7 +63,7 @@ body {
 }
 
 .centered {
-    margin: 2% 5%;
+    margin: 1% 5%;
     width: 90%;
 }
 
@@ -68,7 +74,7 @@ header {
     background-color: var(--blackish);
     display: flex;
     padding: 0 5%;
-    min-height: 64px;
+    min-height: 32px;
     max-height: 10%;
     align-items: center;
     border: solid grey 1px;
@@ -107,17 +113,6 @@ header {
 
 
 .top {
-
-
-    /* display: grid;
-    grid-template-columns: repeat(6, 1fr);
-    grid-template-rows: 1fr 1fr;
-    grid-template-areas:
-        "desc desc desc desc pic pic"
-        "event event event event pic pic";
-
-    gap: 10px;
-    flex-shrink: 0; */
     font-family: var(--main-font);
     background-color: var(--blackish);
     border-radius: 10px;
@@ -126,6 +121,8 @@ header {
     box-shadow: 0px 10px 10px 0px rgba(0, 0, 0, 0.20);
     min-height: 80vh;
     display: grid;
+    width: 100%;
+    grid-auto-rows: 40vh auto;
 }
 
 
@@ -139,17 +136,17 @@ header {
 
 /* Track */
 ::-webkit-scrollbar-track {
-    background: #f1f1f1;
+    background: var(--blackish);
 }
 
 /* Handle */
 ::-webkit-scrollbar-thumb {
-    background: #888;
+    background: var(--powder);
 }
 
 /* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
-    background: #555;
+    background: var(--supple);
 }
 
 
@@ -164,19 +161,19 @@ header {
     padding: 2%;
     background-color: white;
     grid-area: 1/1/2/5;
-    justify-content: space-around;
+    justify-content: space-evenly;
     transition: all 1s;
 }
 
-summary h1 {
-    font-size: 32px;
+.summary h1 {
+    font-size: 24px;
     font-weight: bold;
 }
 
 
 .summary p {
-    font-size: 20px;
-    line-height: 27px;
+    font-size: 16px;
+    line-height: 2;
     font-weight: normal;
     text-indent: 40px;
 
@@ -197,7 +194,6 @@ summary h1 {
 }
 
 .artist-profile img {
-    max-height: 100%;
     max-width: 100%;
     object-fit: cover;
     border-radius: 10px;
@@ -471,7 +467,8 @@ footer a {
     transition: all 0.5s cubic-bezier(0.075, 0.82, 0.165, 1);
 }
 
-footer a:hover {
+.footer-center a:hover,
+.footer-right a:hover {
     background-color: var(--front);
     color: var(--blackish);
 }
@@ -660,4 +657,46 @@ footer h1 {
         overflow-y: auto;
 
     }
+}
+
+
+
+.gallery {
+    width: 100%;
+}
+
+
+@media screen and (max-width: 600px) {
+    .grid {
+        display: flex;
+        flex-wrap: wrap;
+    }
+}
+
+
+.grid {
+    display: grid;
+    gap: 10px;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+
+}
+
+.item {
+    background-color: var(--front);
+    width: 100%;
+    height: 100%;
+}
+
+.item img {
+    width: 100%;
+    height: 100%;
+    aspect-ratio: 1/1;
+    object-fit: cover;
+    transition: all 1s;
+    vertical-align: middle;
+
+}
+
+.item img:hover {
+    opacity: 0.9;
 }
