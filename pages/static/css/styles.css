@@ -118,7 +118,7 @@ header {
 
 .top {
     font-family: var(--main-font);
-    background-color: var(--staple);
+    background-color: var(--base);
     border-radius: 10px;
     gap: 10px;
     padding: 10px;
@@ -702,6 +702,8 @@ footer h1 {
     background-color: var(--front);
     width: 100%;
     height: 100%;
+    border-radius: 8px;
+    overflow: hidden;
 }
 
 .item img {
@@ -711,6 +713,7 @@ footer h1 {
     object-fit: cover;
     transition: all 1s;
     vertical-align: middle;
+
 
 }
 
