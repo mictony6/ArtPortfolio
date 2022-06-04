@@ -2,10 +2,10 @@ var slides = document.getElementsByClassName("slide");
 var counter = document.getElementById("counter");
 var dots;
 let currentSlide = 0;
+let navigation = document.querySelectorAll(".nav ul li");
 
 
 initialize();
-
 dots = document.getElementsByClassName("dot");
 slideShow();
 
@@ -41,9 +41,13 @@ function slideShow() {
     currentSlide++;
     currentSlide %= n;
     setTimeout(slideShow, 5000);
-
-
 }
+
+navigation.forEach(function (a) {
+    a.onclick = function () {
+        a.firstChild.className = "active";
+    }
+})
 
 
 

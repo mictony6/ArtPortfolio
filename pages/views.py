@@ -1,6 +1,7 @@
 from multiprocessing import context
 from urllib import request
 from django.shortcuts import get_object_or_404, render
+from pages.forms import RequestForm
 
 from pages.models import ArtWork
 
@@ -31,3 +32,13 @@ def detail_view(request, pk):
         'subject': get_object_or_404(ArtWork, pk=pk)
     }
     return render(request, 'detail.html', context)
+
+
+def request_form_view(request, *args, **kwargs):
+    form = RequestForm(request.POST or None)
+    if form.is_valid():
+        form.save()
+    context = {
+        'form': form
+    }
+    return render(request, 'request_form.html', context)

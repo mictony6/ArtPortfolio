@@ -1,6 +1,9 @@
 from io import BytesIO
 import os
+from pyexpat import model
+from random import choices
 from django.db import models
+from django.forms import ChoiceField
 from django.urls import reverse
 from PIL import Image
 from django.core.files.base import ContentFile
@@ -105,3 +108,20 @@ class ArtWork(models.Model):
         self.thumbnail.storage.delete(self.thumbnail.name)
         self.preview.storage.delete(self.preview.name)
         return super().delete(*args, **kwargs)
+
+
+class Request(models.Model):
+    choices = [
+        ('character_model', 'Character Model'),
+        ('archviz', 'ArchViz'),
+        ('abstract', 'Abstract')
+    ]
+    f_name = models.CharField(max_length=20, verbose_name="First Name")
+    l_name = models.CharField(max_length=20, verbose_name="Last Name")
+    email = models.EmailField(blank=False)
+    width = models.IntegerField()
+    height = models.IntegerField()
+    investment = models.IntegerField()
+    type = models.CharField(max_length=50, choices=choices,
+                            blank=False, default="character_model")
+    details = models.TextField(blank=False)
