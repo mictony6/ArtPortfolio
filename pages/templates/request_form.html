@@ -8,7 +8,7 @@
 
 <div class="form-container">
     <h2>Commission Request Form</h2>
-    <form method="post">
+    <form method="post" >
         {% csrf_token %}
         <div> First Name:{{form.f_name}}</div>
         <div> Last Name:{{form.l_name}}</div>

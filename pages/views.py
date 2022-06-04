@@ -1,6 +1,6 @@
 from multiprocessing import context
 from urllib import request
-from django.shortcuts import get_object_or_404, render
+from django.shortcuts import get_object_or_404, redirect, render
 from pages.forms import RequestForm
 
 from pages.models import ArtWork
@@ -38,6 +38,7 @@ def request_form_view(request, *args, **kwargs):
     form = RequestForm(request.POST or None)
     if form.is_valid():
         form.save()
+        return redirect('home')
     context = {
         'form': form
     }
