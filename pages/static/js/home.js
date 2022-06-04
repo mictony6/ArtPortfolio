@@ -43,11 +43,7 @@ function slideShow() {
     setTimeout(slideShow, 5000);
 }
 
-navigation.forEach(function (a) {
-    a.onclick = function () {
-        a.firstChild.className = "active";
-    }
-})
+
 
 
 

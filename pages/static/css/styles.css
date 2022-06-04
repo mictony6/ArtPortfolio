@@ -387,7 +387,7 @@ header {
 
 .slide {
     border-radius: 10px;
-    max-width: 75%;
+    width: 75%;
     flex-grow: 1;
     flex-flow: row nowrap;
     animation: slideRight 5s infinite;
@@ -403,6 +403,7 @@ header {
     flex-grow: 1;
     order: 2;
     max-height: 100%;
+    width: 100%;
     object-fit: cover;
 
 }
@@ -775,7 +776,7 @@ a {
     }
 }
 
-
+/* Gallery */
 
 .gallery {
     width: 100%;
@@ -798,7 +799,7 @@ a {
 }
 
 .item {
-    background-color: var(--front);
+    background-color: var(--base);
     width: 100%;
     height: 100%;
     border-radius: 8px;
