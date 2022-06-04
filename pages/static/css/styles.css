@@ -923,3 +923,29 @@ Commission Request Form */
     padding: 10px 62px;
     cursor: pointer;
 }
+
+.middle {
+    text-align: center;
+    padding: 140px;
+    background-color: rgb(219, 219, 206);
+    border-radius: 10px;
+
+}
+
+.info-card {
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+    font-family: var(--main-font);
+    font-size: 17px;
+    line-height: 2;
+}
+
+.info-card a {
+    color: inherit;
+    font-family: inherit;
+    background-color: var(--accent);
+    border: 2px solid grey;
+    border-radius: 10px;
+    font-size: larger;
+}

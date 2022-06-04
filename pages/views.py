@@ -38,8 +38,12 @@ def request_form_view(request, *args, **kwargs):
     form = RequestForm(request.POST or None)
     if form.is_valid():
         form.save()
-        return redirect('home')
+        return redirect('redirect')
     context = {
         'form': form
     }
     return render(request, 'request_form.html', context)
+
+
+def redirect_page(request):
+    return render(request, 'redirect_page.html', {})
