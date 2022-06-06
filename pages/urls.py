@@ -10,4 +10,5 @@ urlpatterns = [
     path('item/<int:pk>', detail_view, name="item_detail"),
     path('request/', request_form_view, name='request_form'),
     path('redirect/', redirect_page, name='redirect'),
+
 ]

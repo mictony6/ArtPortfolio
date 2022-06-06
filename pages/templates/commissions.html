@@ -3,16 +3,33 @@
 
 
 {% block content %}
+
 <div class="centered">
     <div class="gallery">
+
         <div class="grid">
             {% for art in artworks %}
             {% if not art.thumbnail %}
-            <a href="{{art.get_absolute_url}}"><div class="item"><img src="{{art.image.url}}" alt="img1" srcset=""></div></a>
+
+            <a href="{{art.get_absolute_url}}">
+                <div class="item">
+                    <div class="dim-panel"></div>
+
+                    <img src="{{art.image.url}}" alt="img1" srcset="">
+                </div>
+            </a>
 
             {% else %}
-            <a href="{{art.get_absolute_url}}"><div class="item"><img src="{{art.thumbnail.url}}" alt="img1" srcset=""></div></a>
+            <div class="grid-box">
+                <a href="{{art.get_absolute_url}}">
+                    <div class="item">
+                        <img src="{{art.thumbnail.url}}" alt="img1" srcset="" data-likes="{{art.likes}}">
 
+                    </div>
+
+                </a>
+
+            </div>
             {% endif %}
             {% endfor %}
         </div>

@@ -13,7 +13,6 @@ from django.core.files.base import ContentFile
 
 
 class ArtWork(models.Model):
-
     title = models.CharField(max_length=20)
     description = models.TextField(blank=True, null=True)
     date = models.DateField(auto_now_add=True)
@@ -22,6 +21,7 @@ class ArtWork(models.Model):
         upload_to='thumbnails/', blank=True, null=True)
     preview = models.ImageField(upload_to='previews/', blank=True, null=True)
     featured = models.BooleanField(default=False)
+    likes = models.PositiveIntegerField(default=0, blank=True)
 
     def get_absolute_url(self):
         return reverse("item_detail", kwargs={"pk": self.pk})
